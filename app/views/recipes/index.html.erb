@@ -1,0 +1,33 @@
+<div class="row">
+  <div class="col-12 gy-xl-4">
+    <h1 class="display-3">Ingredients on hand:</h1>
+  </div>
+</div>
+
+<div class="row">
+  <%= render "form", ingredients: @ingredients %>
+</div>
+
+<% if @recipes.any? %>
+  <div class="row">
+    <div class="column-12 gy-xl-4">
+      <h3 class="display-5">Recipes:</h3>
+    </div>
+  </div>
+  <div class="row row-cols-xl-5">
+    <% @recipes.each do |recipe| %>
+      <%= render recipe %>
+    <% end %>
+  </div>
+<% else %>
+  <div class="row">
+    <div class="col-12 gy-xl-4">
+      <h5 class="display-5">No recipes found, try to limit number of ingredients</h5>
+    </div>
+  </div>
+<% end %>
+<div class="row">
+  <div class="column offset-10 gy-3">
+    <%= paginate @recipes, window: 1 %>
+  </div>
+</div>

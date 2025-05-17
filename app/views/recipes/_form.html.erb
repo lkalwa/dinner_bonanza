@@ -1,0 +1,22 @@
+<div class="column">
+<%= form_with(method: :get, id: "ingredients-form" ) do |form| %>
+  <div class="row justify-content-center">
+    <div class="col-8 gy-xl-2">
+      <%= form.search_field "ingredients[]", class: 'form-control', placeholder: 'e.g oregano', required: true %>
+    </div>
+    <div class="col-4 gy-xl-2">
+      <%= form.submit " + Add Ingredient", class: 'btn btn-secondary mb-3' %>
+    </div>
+  </div>
+  <% if ingredients.any? %>
+    <div class="row">
+      <div class="col-8 gy-xl-2">
+        <h3>Added Ingredients:</h3>
+      </div>
+    </div>
+  <% end %>
+  <% ingredients.each do |ingredient| %>
+    <%= render "recipes/ingredient", ingredient: ingredient, form: form %>
+  <% end %>
+<% end %>
+</div>

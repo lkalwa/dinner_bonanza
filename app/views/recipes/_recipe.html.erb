@@ -1,0 +1,11 @@
+<div class="col-l-2">
+  <div class="card h-100 d-flex flex-column">
+    <div class="chip-recipe-photo-small card-img-top" style="background-image: url('<%= recipe.image_url %>')"></div>
+    <div class="card-body d-flex flex-column flex-grow-1">
+      <h5 class="card-title flex-grow-1"><%= recipe.title %></h5>
+      <p class="card-text">Preparation time: <%= recipe.prep_time %></p>
+      <p class="card-text">Cooking time: <%= recipe.cook_time %></p>
+      <%= link_to "Let's cook!", recipe_path(recipe), class: "btn btn-tertiary stretched-link mt-auto" %>
+    </div>
+  </div>
+</div>

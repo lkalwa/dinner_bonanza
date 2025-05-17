@@ -1,0 +1,48 @@
+@import "@trimble-oss/modus-bootstrap/scss/modus-bootstrap";
+@import 'bootstrap-icons/font/bootstrap-icons';
+
+body {
+  background-color: #FAFAF8;
+}
+
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 11px;
+  height: 100px;
+  background-color: white;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.10), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+}
+
+header > img {
+  width: 30px;
+  height: 30px;
+  align-content: center;
+  display: flex;
+  padding-bottom: 8px;
+}
+
+header > h1 {
+  font-weight: 700;
+}
+
+div.chip-input {
+  margin-top: 10px;
+}
+
+.chip-recipe-photo-small {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 250px;
+}
+
+.chip-recipe-photo-big {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 450px;
+}

@@ -1,0 +1,11 @@
+<div class="chip chip-solid chip-input" data-controller="chip" data-chip-target="chip">
+  <div class="chip-text">
+    <%= ingredient %>
+  </div>
+  <div class="chip-delete-right" data-action="click->chip#remove">
+    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" height="16" width="16" viewBox="0 0 32 32">
+      <path d="M16 30c7.72 0 14-6.28 14-14S23.72 2 16 2 2 8.28 2 16s6.28 14 14 14zm-5.06-16.94a1.49 1.49 0 0 1 0-2.12 1.49 1.49 0 0 1 2.12 0L16 13.88l2.94-2.94a1.49 1.49 0 0 1 2.12 0c.59.59.59 1.53 0 2.12L18.12 16l2.94 2.94c.59.59.59 1.53 0 2.12-.29.29-.68.44-1.06.44s-.77-.15-1.06-.44L16 18.12l-2.94 2.94c-.29.29-.68.44-1.06.44s-.77-.15-1.06-.44a1.49 1.49 0 0 1 0-2.12L13.88 16l-2.94-2.94z" />
+    </svg>
+  </div>
+  <%= form.hidden_field "ingredients[]", value: ingredient, data: { chip_target: "input" }  %>
+</div>
