@@ -14,7 +14,7 @@ class RecipeData
   end
 
   def attrs_hash
-    FIELDS.to_h { [ it, instance_variable_get(:"@#{it}") ] }
+    FIELDS.to_h { |field| [ field, instance_variable_get(:"@#{field}") ] }
   end
 end
 
@@ -25,7 +25,7 @@ module RecipeSeeder
       i = 0
       recipes.each_slice(250) do |slice|
         puts "recipes: #{i*250} - #{i*250 + 250} "
-        slice.each { create_recipe(it) }
+        slice.each { |recipe| create_recipe(recipe) }
         i += 1
       end
     end
@@ -40,7 +40,7 @@ module RecipeSeeder
   def self.create_recipe(recipe_hash)
     RecipeData.new(recipe_hash).then do |recipe_data|
       recipe = Recipe.create!(recipe_data.attrs_hash)
-      recipe_data.ingredients.each { Ingredient.create!(it.to_h.merge(recipe: recipe)) }
+      recipe_data.ingredients.each { |ingredient| Ingredient.create!(ingredient.to_h.merge(recipe: recipe)) }
     rescue ActiveRecord::RecordInvalid => e
       Rails.logger.error "In #{recipe_hash} #{e.message}"
     end
