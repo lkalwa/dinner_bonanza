@@ -2,7 +2,7 @@ class RecipesController < ApplicationController
   before_action :assign_ingredients
   def index
     scope = ingredients? ? Recipe.search_among_ingredients(format_to_fulltext_search) : Recipe.order(rating: :desc)
-    @recipes = scope.page(params[:page])
+    @recipes = scope.page(params[:page]).without_count
   end
 
   def show

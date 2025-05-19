@@ -8,7 +8,7 @@
   <%= render "form", ingredients: @ingredients %>
 </div>
 
-<% if @recipes.any? %>
+<% if @recipes.present? %>
   <div class="row">
     <div class="column-12 gy-xl-4">
       <h3 class="display-5">Recipes:</h3>
@@ -28,6 +28,6 @@
 <% end %>
 <div class="row">
   <div class="column offset-10 gy-3">
-    <%= paginate @recipes, window: 1 %>
+    <%= render "kaminari/pagination", recipes: @recipes %>
   </div>
 </div>

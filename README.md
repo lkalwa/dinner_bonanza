@@ -14,7 +14,7 @@ A Rails application that helps you find recipes based on ingredients you have at
 
 - Ruby 3.2.0 or higher
 - PostgreSQL
-- Node.js and Yarn
+- Node.js and Yarn (install via `brew install yarn`)
 - Chrome/Chromium (for system tests)
 
 ## Installation
@@ -26,6 +26,7 @@ For the first time setup, run:
 ```bash
 git clone git@github.com:lkalwa/dinner_bonanza.git
 cd dinner_bonanza
+yarn install  # Install JavaScript dependencies
 bin/setup
 ```
 
