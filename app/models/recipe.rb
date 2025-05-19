@@ -6,7 +6,13 @@ class Recipe < ApplicationRecord
 
   pg_search_scope :search_among_ingredients,
                   associated_against: { ingredients: :content },
-                  using: { tsearch: { dictionary: "english", prefix: true } }
+                  using: {
+                    tsearch: {
+                      dictionary: "english",
+                      prefix: true,
+                      tsvector_column: "ingredients_tsv",
+                    }
+                  }
 
   validates :title, presence: true
   validates :cook_time, numericality: { only_integer: true, greater_than_or_equal_to: 0 }, allow_nil: true
