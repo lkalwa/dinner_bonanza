@@ -9,8 +9,7 @@ class Recipe < ApplicationRecord
                   using: {
                     tsearch: {
                       dictionary: "english",
-                      prefix: true,
-                      tsvector_column: "ingredients_tsv",
+                      prefix: true
                     }
                   }
 
